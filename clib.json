@@ -28,8 +28,7 @@
   },
   "homepage": "https://github.com/jwerle/libmerkle#readme",
   "dependencies": {
-    "arablocks/flat-tree.c": "0.3.1",
-    "clibs/sodium": "master"
+    "arablocks/flat-tree.c": "0.3.1"
   },
   "development": {
     "jwerle/libok": "0.3.0",
