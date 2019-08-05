@@ -4,9 +4,11 @@
   "description": "A C99 library for generating Merkle trees.",
   "repo": "jwerle/libmerkle",
   "src": [
+    "include/merkle/allocator.h",
+    "include/merkle/merkle.h",
     "include/merkle/platform.h",
     "include/merkle/version.h",
-    "include/merkle/merkle.h",
+    "src/allocator.c",
     "src/merkle.c",
     "src/version.c",
     "mk/brief.mk",
