@@ -1,0 +1,23 @@
+{
+  "name": "@jwerle/libmerkle",
+  "version": "0.0.0",
+  "description": "A C99 library for generating Merkle trees.",
+  "directories": {
+    "example": "example",
+    "test": "test"
+  },
+  "scripts": {
+    "version": "./scripts/update-clib-json && git add clib.json",
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jwerle/libmerkle.git"
+  },
+  "author": "Joseph Werle <joseph.werle@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jwerle/libmerkle/issues"
+  },
+  "homepage": "https://github.com/jwerle/libmerkle#readme"
+}
