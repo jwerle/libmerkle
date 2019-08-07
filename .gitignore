@@ -54,3 +54,4 @@ build/
 example/hypercore
 test/test
 /Makefile
+/tmp/
