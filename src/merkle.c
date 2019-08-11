@@ -1,8 +1,10 @@
-#include <flat-tree/flat-tree.h>
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
 #include <errno.h>
+
+#include <flat-tree/flat-tree.h>
+#include <sha256/sha256.h>
 
 #include "merkle/allocator.h"
 #include "merkle/merkle.h"
@@ -13,6 +15,36 @@ push(merkle_node_list_t *nodes, merkle_node_t *node);
 static merkle_node_t *
 pop(merkle_node_list_t *nodes);
 
+static unsigned long int
+default_node_callback(
+  unsigned char **hash,
+  merkle_node_t *node,
+  merkle_node_list_t *roots
+) {
+  unsigned long int size = 32;
+  *hash = merkle_alloc(size);
+  sha256_hash(*hash, node->data, node->size);
+  return size;
+}
+
+static unsigned long int
+default_parent_callback(
+  unsigned char **hash,
+  merkle_node_t *left,
+  merkle_node_t *right
+) {
+  unsigned long int size = 32;
+  unsigned char *out = merkle_alloc(size);
+  sha256_t sha256;
+  *hash = merkle_alloc(size);
+  sha256_init(&sha256);
+  sha256_update(&sha256, left->hash, left->size);
+  sha256_update(&sha256, right->hash, right->size);
+  sha256_final(&sha256, out);
+  *hash = out;
+  return size;
+}
+
 int
 merkle_init(merkle_t *merkle, merkle_options_t options) {
   if (0 == merkle) {
@@ -20,11 +52,13 @@ merkle_init(merkle_t *merkle, merkle_options_t options) {
   }
 
   if (0 == options.codec.node) {
-    return EINVAL;
+    options.codec.node = default_node_callback;
+    //return EINVAL;
   }
 
   if (0 == options.codec.parent) {
-    return EINVAL;
+    options.codec.parent = default_parent_callback;
+    //return EINVAL;
   }
 
   merkle->blocks = 0;
