@@ -28,7 +28,8 @@
   },
   "homepage": "https://github.com/jwerle/libmerkle#readme",
   "dependencies": {
-    "arablocks/flat-tree.c": "0.3.1"
+    "arablocks/flat-tree.c": "0.3.1",
+    "jb55/sha256.c": "0.0.2"
   },
   "development": {
     "jwerle/libok": "0.3.0",
