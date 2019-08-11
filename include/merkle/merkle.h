@@ -21,6 +21,8 @@ typedef unsigned long int (merkle_parent_callback_t)(
   merkle_node_t *left,
   merkle_node_t *right);
 
+#define MERKLE_DEFAULT_OPTIONS ((merkle_options_t) { 0 })
+
 struct merkle_codec {
   merkle_node_callback_t *node;
   merkle_parent_callback_t *parent;
