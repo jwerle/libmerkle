@@ -34,14 +34,12 @@ default_parent_callback(
   merkle_node_t *right
 ) {
   unsigned long int size = 32;
-  unsigned char *out = merkle_alloc(size);
   sha256_t sha256;
   *hash = merkle_alloc(size);
   sha256_init(&sha256);
-  sha256_update(&sha256, left->hash, left->size);
-  sha256_update(&sha256, right->hash, right->size);
-  sha256_final(&sha256, out);
-  *hash = out;
+  sha256_update(&sha256, left->hash, left->hash_size);
+  sha256_update(&sha256, right->hash, right->hash_size);
+  sha256_final(&sha256, *hash);
   return size;
 }
 
@@ -53,12 +51,10 @@ merkle_init(merkle_t *merkle, merkle_options_t options) {
 
   if (0 == options.codec.node) {
     options.codec.node = default_node_callback;
-    //return EINVAL;
   }
 
   if (0 == options.codec.parent) {
     options.codec.parent = default_parent_callback;
-    //return EINVAL;
   }
 
   merkle->blocks = 0;
