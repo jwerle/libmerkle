@@ -15,7 +15,7 @@ declare LIBRARY_NAME="merkle"
 
 ## Library version
 function semver() {
-  cat package.json |     \
+  cat clib.json |        \
     grep '"version":' |  \
     tr -d '"version":' | \
     tr -d ',' |          \
