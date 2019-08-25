@@ -4,7 +4,7 @@
   "author": "jwerle",
   "description": "A C99 library for generating Merkle trees.",
   "repo": "jwerle/libmerkle",
-  "configure": "bash configure",
+  "configure": "bash configure --prefix=$PREFIX --build=$PREFIX",
   "makefile": "Makefile",
   "prefix": "./build/",
   "src": [
