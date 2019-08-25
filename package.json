@@ -1,6 +1,6 @@
 {
   "name": "@jwerle/libmerkle",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "A C99 library for generating Merkle trees.",
   "directories": {
     "example": "example",
