@@ -1,8 +1,12 @@
 {
   "name": "merkle",
   "version": "0.1.2",
+  "author": "jwerle",
   "description": "A C99 library for generating Merkle trees.",
   "repo": "jwerle/libmerkle",
+  "configure": "configure",
+  "makefile": "Makefile",
+  "prefix": "./build/",
   "src": [
     "include/merkle/allocator.h",
     "include/merkle/merkle.h",
@@ -21,7 +25,6 @@
     "type": "git",
     "url": "git+https://github.com/jwerle/libmerkle.git"
   },
-  "author": "Joseph Werle <joseph.werle@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/jwerle/libmerkle/issues"
