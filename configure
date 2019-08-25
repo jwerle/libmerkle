@@ -64,8 +64,8 @@ declare -a DEPS=(
 
 ## Source files
 declare -a SRC=(
-  $(ls *.c)
-  $(ls src/*.c)
+  $(ls *.c 2>/dev/null)
+  $(ls src/*.c 2>/dev/null)
 )
 
 ## Required system headers
