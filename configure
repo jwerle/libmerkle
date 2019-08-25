@@ -35,7 +35,7 @@ declare -i VERSION_REVISION=1
 declare SELF="$(basename $0)"
 
 ## Project version
-declare PROJECT_VERSION="$(./scripts/version)"
+declare PROJECT_VERSION="$(test -f version && ./version || test -f ./scripts/version && ./scripts/version || 'NO_VERSION')"
 
 ## Required system commands
 declare -a COMMAND_DEPENDENCIES=(

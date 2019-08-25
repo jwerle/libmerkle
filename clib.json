@@ -12,6 +12,7 @@
     "include/merkle/merkle.h",
     "include/merkle/platform.h",
     "include/merkle/version.h",
+    "scripts/version",
     "src/allocator.c",
     "src/merkle.c",
     "src/version.c",
