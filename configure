@@ -36,9 +36,9 @@ declare SELF="$(basename $0)"
 
 ## Project version
 if test -f version; then
-  declare PROJECT_VERSION="$(./version)"
+  declare PROJECT_VERSION="$(sh ./version)"
 elif test -f scripts/version; then
-  declare PROJECT_VERSION="$(./scripts/version)"
+  declare PROJECT_VERSION="$(sh ./scripts/version)"
 else
   declare PROJECT_VERSION="0.0.0"
 fi
